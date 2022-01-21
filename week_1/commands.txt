@@ -1,0 +1,20 @@
+docker build -t test:pandas .
+
+docker run -it test:pandas 2021-01-15
+
+# docker run -it \
+   -e POSTGRES_USER="root" \
+   -e POSTGRES_PASSWORD="root" \
+   -e POSTGRES_DB="ny_taxi" \
+   -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+   -p 5432:5432 \
+   postgres:13
+
+
+pip install pgcli
+
+pgcli -h localhost -p 5432 -u root -d ny_taxi
+
+Taxi data
+https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+
